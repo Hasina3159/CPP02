@@ -5,15 +5,9 @@ void    ft_print(std::string text)
     std::cout << text << std::endl;
 }
 
-Fixed::Fixed() : m_value(0)
-{
-    ft_print("Default constructor called");
-}
+Fixed::Fixed() : m_value(0) {}
 
-Fixed::Fixed(const Fixed &other) : m_value(other.m_value)
-{
-    ft_print("Copy constructor called");
-}
+Fixed::Fixed(const Fixed &other) : m_value(other.m_value) {}
 
 Fixed::Fixed(const int value)
 {
@@ -26,7 +20,6 @@ Fixed::Fixed(const float value)
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
-    ft_print("Copy assignment operator called");
     if (this != &other)
         m_value = other.m_value;
     return *this;
@@ -34,19 +27,16 @@ Fixed &Fixed::operator=(const Fixed &other)
 
 int Fixed::getRawBits( void )
 {
-    ft_print("getRawBits member function called");
     return (m_value);
 }
 
 void Fixed::setRawBits( int const raw )
 {
-    ft_print("setRawBits member function called");
     m_value = raw;
 }
 
 Fixed::~Fixed()
 {
-    ft_print("Destructor called");
 }
 
 float Fixed::toFloat( void ) const
@@ -129,4 +119,17 @@ Fixed& Fixed::max(Fixed &a, Fixed &b) {
 
 const Fixed& Fixed::max(const Fixed &a, const Fixed &b) {
     return ((a.m_value > b.m_value) ? a : b);
+}
+
+Fixed 	&Fixed::operator++()
+{
+    m_value++;
+    return (*this);
+}
+
+Fixed 	Fixed::operator++(int)
+{
+    Fixed   tmp = *this;
+    m_value++;
+    return (tmp);
 }
