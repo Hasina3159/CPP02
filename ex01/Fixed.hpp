@@ -19,10 +19,10 @@ public:
 	Fixed& operator=(const Fixed &other);
 	friend std::ostream& operator<<(std::ostream &os, const Fixed &other);
 	~Fixed();
-	int getRawBits( void );
-	void setRawBits( int const raw );
-	float toFloat( void ) const;
-	int toInt( void ) const;
+	int 	getRawBits( void );
+	void 	setRawBits( int const raw );
+	float 	toFloat( void ) const;
+	int 	toInt( void ) const;
 
 };
 

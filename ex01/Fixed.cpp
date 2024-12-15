@@ -10,26 +10,29 @@ Fixed::Fixed() : m_value(0)
     ft_print("Default constructor called");
 }
 
+
 Fixed::Fixed(const Fixed &other) : m_value(other.m_value)
 {
-    ft_print("Copy constructor called");
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int value)
 {
-    m_value = (value * (1 << m_bits));
+	std::cout << "Int constructor called" << std::endl;
+	m_value = (value * (1 << m_bits));
 }
 Fixed::Fixed(const float value)
 {
-    m_value = static_cast<int>(roundf(value * (1 << m_bits)));
+	std::cout << "Float constructor called" << std::endl;
+	m_value = static_cast<int>(roundf(value * (1 << m_bits)));
 }
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
-    ft_print("Copy assignment operator called");
-    if (this != &other)
-        m_value = other.m_value;
-    return *this;
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &other)
+		m_value = other.m_value;
+	return *this;
 }
 
 int Fixed::getRawBits( void )
@@ -51,11 +54,13 @@ Fixed::~Fixed()
 
 float Fixed::toFloat( void ) const
 {
+    ft_print("Float constructor called");
     return (static_cast<float> (m_value) / (1 << m_bits));
 }
 
 int Fixed::toInt( void ) const
 {
+    ft_print("int constructor called");
     return (m_value / (1 << m_bits));
 }
 

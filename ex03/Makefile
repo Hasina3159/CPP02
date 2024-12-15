@@ -1,6 +1,6 @@
 NAME = bsp
 
-CC = g++
+CXX = c++
 
 CPPFLAGS = -Wall -Werror -Wextra
 
@@ -9,10 +9,10 @@ SRCS = $(shell find . -name "*.cpp" | tr '\n' ' ')
 OBJS = $(SRCS:.cpp=.o)
 
 $%.o		:	%.cpp
-	$(CC) $(CPPFLAGS) -c $< -o $@
+	$(CXX) $(CPPFLAGS) -c $< -o $@
 
 $(NAME)		:	$(OBJS)
-	$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME) -g
+	$(CXX) $(CPPFLAGS) $(SRCS) -o $(NAME) -g
 
 all			:	$(NAME)
 

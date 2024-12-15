@@ -23,13 +23,13 @@ Fixed &Fixed::operator=(const Fixed &other)
     return *this;
 }
 
-int Fixed::getRawBits( void )
+int Fixed::getRawBits( void ) const
 {
     ft_print("getRawBits member function called");
     return (m_value);
 }
 
-void Fixed::setRawBits( int const raw )
+void Fixed::setRawBits( const int &raw )
 {
     ft_print("setRawBits member function called");
     m_value = raw;
