@@ -27,7 +27,7 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	Fixed pab = Fixed(ft_area(point, a, b));
 	Fixed pbc = Fixed(ft_area(point, b, c));
 	Fixed pac = Fixed(ft_area(point, a, c));
-	if (abc == ((pab + pbc + pbc)))
+	if (abc == ((pab + pbc + pac)))
 		return (true);
 	return (false);
 }

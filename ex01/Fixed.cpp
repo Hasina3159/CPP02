@@ -19,7 +19,7 @@ Fixed::Fixed(const Fixed &other) : m_value(other.m_value)
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
-	m_value = (value * (1 << m_bits));
+	m_value = (value << m_bits);
 }
 Fixed::Fixed(const float value)
 {
@@ -32,7 +32,7 @@ Fixed &Fixed::operator=(const Fixed &other)
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		m_value = other.m_value;
-	return *this;
+	return (*this);
 }
 
 int Fixed::getRawBits( void )
@@ -54,13 +54,11 @@ Fixed::~Fixed()
 
 float Fixed::toFloat( void ) const
 {
-    ft_print("Float constructor called");
     return (static_cast<float> (m_value) / (1 << m_bits));
 }
 
 int Fixed::toInt( void ) const
 {
-    ft_print("int constructor called");
     return (m_value / (1 << m_bits));
 }
 

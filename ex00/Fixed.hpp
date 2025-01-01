@@ -18,6 +18,6 @@ public:
 	void	setRawBits( const int &raw );
 };
 
-void    ft_print(std::string text);
+void    	ft_print(std::string text);
 
 #endif
