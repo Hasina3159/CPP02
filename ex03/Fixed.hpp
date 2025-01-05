@@ -37,6 +37,8 @@ public:
 
 	Fixed 			&operator++();
 	Fixed 			operator++(int);
+	Fixed 			&operator--();
+	Fixed 			operator--(int);
 
     static 			Fixed& min(Fixed &a, Fixed &b);
     static 			const Fixed& min(const Fixed &a, const Fixed &b);
@@ -46,5 +48,4 @@ public:
 
 void    			ft_print(std::string text);
 std::ostream& 		operator<<(std::ostream &os, const Fixed &other);
-
 #endif

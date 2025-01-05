@@ -97,7 +97,7 @@ float	Fixed::operator/(const Fixed &other) const
 	return (toFloat() / other.toFloat());
 }
 
-float	Fixed::operator+(const Fixed &other) const
+Fixed	Fixed::operator+(const Fixed &other) const
 {
 	return (toFloat() + other.toFloat());
 }
@@ -133,5 +133,20 @@ Fixed 	Fixed::operator++(int)
 {
 	Fixed   tmp = *this;
 	m_value++;
+	return (tmp);
+}
+
+Fixed 	&Fixed::operator--()
+{
+	if (m_value + 1 > 1)
+		m_value--;
+	return (*this);
+}
+
+Fixed 	Fixed::operator--(int)
+{
+	Fixed   tmp = *this;
+	if (m_value + 1 > 1)
+		m_value--;
 	return (tmp);
 }
