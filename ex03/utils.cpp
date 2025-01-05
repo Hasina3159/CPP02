@@ -22,19 +22,19 @@ Fixed	ft_area(Point const &a, Point const &b, Point const &c)
 
 bool ft_is_on_segment(const Point &seg_start, const Point &seg_end, const Point &pt)
 {
-	Point vec_a(seg_start.get_x() - pt.get_x(), seg_start.get_y() - pt.get_y());
-	Point vec_b(pt.get_x() - seg_end.get_x(), pt.get_y() - seg_end.get_y());
-
+	float x1 = seg_start.get_x().toFloat() - pt.get_x().toFloat();
+	float x2 = pt.get_x().toFloat() - seg_end.get_x().toFloat();
+	float y1 = seg_start.get_y().toFloat() - pt.get_y().toFloat();
+	float y2 = pt.get_y().toFloat() - seg_end.get_y().toFloat();
+	
 	float coeff_a = 0;
 	float coeff_b = 0;
 
-	coeff_a = vec_a.get_x().toFloat() / vec_b.get_x().toFloat();
-	coeff_b = vec_a.get_y().toFloat() / vec_b.get_y().toFloat();
+	coeff_a = x1 / x2;
+	coeff_b = y1 / y2;
 
-	if (vec_b.get_x().toFloat() == 0)
-		coeff_a = 0;
-	if (vec_b.get_y().toFloat() == 0)
-		coeff_a = 0;
+	std::cout << "> coeaff_a : " << coeff_a << std::endl;
+	std::cout << "> coeaff_b : " << coeff_b << std::endl;
 	
 	return (std::abs(coeff_a - coeff_b) < 0.00001);
 }
